@@ -26,4 +26,4 @@ deploy:
         password: $PASSWORD
         repository: stefanvantilborg/hello-world
         registry: https://registry.hub.docker.com
-        entrypoint: "/pipeline/source/app/docker_entrypoint.sh"
+        entrypoint: "dotnet /pipeline/source/app/publish/Example3.dll"
