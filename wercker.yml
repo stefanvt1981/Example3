@@ -26,4 +26,4 @@ deploy:
         password: $PASSWORD
         repository: stefanvantilborg/hello-world
         registry: https://registry.hub.docker.com
-        entrypoint: "dotnet /pipeline/source/app/publish/Example3.dll"
+        entrypoint: "dotnet /pipeline/source/app/publish/Example3.dll --server.urls=http://0.0.0.0:${PORT-"8080"}"
