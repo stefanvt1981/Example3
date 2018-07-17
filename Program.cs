@@ -12,13 +12,18 @@ namespace Example3
 {
     public class Program
     {
-        public static void Main(string[] args)
+	public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            var config = new ConfigurationBuilder()
+                .AddCommandLine(args)
+                .Build();
+
+            CreateWebHostBuilder(args, config).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args, IConfigurationRoot config) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(config)
                 .UseStartup<Startup>();
     }
 }
