@@ -23,7 +23,8 @@ namespace Example3
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args, IConfigurationRoot config) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseConfiguration(config)
-                .UseStartup<Startup>();
+                .UseKestrel()
+                .UseStartup<Startup>()
+		.UseConfiguration(config);
     }
 }
